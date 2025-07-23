@@ -1,0 +1,18 @@
+{
+  "name": "rc500-visualizer",
+  "version": "0.1.0",
+  "description": "RC-500 Visualizer build and plugin setup",
+  "scripts": {
+    "build:js": "esbuild src/main.js --bundle --minify --format=esm --external:\"https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js\" --outfile=dist/rc500_visualizer.bundle.min.js",
+    "build:css": "esbuild src/main.css --bundle --minify --outfile=dist/rc500_visualizer.min.css",
+    "minify:html": "node build/minify-html.js",
+    "copy:assets": "node build/copy-assets.js",
+    "build": "npm run build:js && npm run build:css && npm run minify:html && npm run copy:assets",
+    "start": "serve dist",
+    "startdev": "serve src"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8",
+    "serve": "^14.2.4"
+  }
+}
