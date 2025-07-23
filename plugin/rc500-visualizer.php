@@ -13,10 +13,10 @@ function rc500_visualizer_enqueue_assets() {
     wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css');
     wp_enqueue_script_module('rc500-visualizer-js', $plugin_url . 'rc500_visualizer.bundle.min.js');
 }
-add_action('wp_enqueue_scripts', 'rc500_visualizer_enqueue_assets');
 
 function rc500_visualizer_shortcode() {
     ob_start();
+    rc500_visualizer_enqueue_assets();
     ?>
     <div id="app" class="container py-4">
         <h1 class="mb-4">RC-500 Config Visualizer</h1>
